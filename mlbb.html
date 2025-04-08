@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QRIS Pembayaran</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        h1 {
+            font-size: 36px;
+            color: #4CAF50;
+        }
+        #timer {
+            font-size: 24px;
+            color: #FF0000;
+            margin-top: 20px;
+        }
+        .qris-image {
+            margin: 20px 0;
+        }
+        .payment {
+            font-size: 20px;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>!SCAN QRIS DIBAWAH!</h1>
+    <div class="qris-image">
+        <img src="file:\\\C:\Users\12\celatopup\image\qriscelastore.jpg" alt="QRIS Code" width="300">
+    </div>
+    <h2>Selesaikan pesanan anda!!</h2>
+    <div class="payment">Total Pembayaran: <span id="total-payment">Rp0</span></div>
+
+    <script>
+        // Ambil data dari localStorage
+        const selectedDiamond = localStorage.getItem("selectedDiamond");
+        const selectedPrice = localStorage.getItem("diamondPrice");
+    
+        // Perbarui elemen pembayaran
+        function updateTotalPayment() {
+            if (selectedDiamond && selectedPrice) {
+                document.getElementById("total-payment").textContent = `Rp${selectedPrice}`;
+                console.log("Selected Diamond from LocalStorage:", selectedDiamond); // Debug
+                console.log("Price from LocalStorage:", selectedPrice); // Debug
+            } else {
+                document.getElementById("total-payment").textContent = "Rp0";
+            }
+        }
+    
+        // Panggil fungsi untuk memperbarui total pembayaran
+        updateTotalPayment();
+    </script>
+    
